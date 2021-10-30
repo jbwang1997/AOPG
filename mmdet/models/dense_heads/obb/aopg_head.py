@@ -76,9 +76,9 @@ class CLM(nn.Module):
         self.relu = nn.ReLU(inplace=True)
         self.feat_conv = nn.Conv2d(
             self.in_channels, self.feat_channels, 3, padding=1)
-        self.conv_shape = nn.Conv2d(self.in_channels, 4, 1)
-        self.conv_theta = nn.Conv2d(self.in_channels, 1, 1)
-        self.conv_centerness = nn.Conv2d(self.in_channels, 1, 1)
+        self.conv_shape = nn.Conv2d(self.feat_channels, 4, 1)
+        self.conv_theta = nn.Conv2d(self.feat_channels, 1, 1)
+        self.conv_centerness = nn.Conv2d(self.feat_channels, 1, 1)
 
     def init_weights(self):
         normal_init(self.feat_conv, std=0.01)
